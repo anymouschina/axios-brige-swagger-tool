@@ -52,6 +52,7 @@ class Guide extends React.Component<IMyComponentProps, IMyComponentState>{
         <li>
          example: <Text strong>{this.state.pathUrl}</Text>
         </li>
+        <li><a href="https://github.com/anymouschina/axios-brige-swagger-tool">github:https://github.com/anymouschina/axios-brige-swagger-tool</a></li>
       </ul>
     </Paragraph>
   </Typography>
