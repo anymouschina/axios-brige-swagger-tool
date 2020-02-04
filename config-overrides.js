@@ -1,5 +1,4 @@
-const { override, fixBabelImports } = require('customize-cra');
-
+const { override, fixBabelImports,setWebpackPublicPath } = require('customize-cra');
 
 module.exports = override(
   fixBabelImports('import', {
@@ -7,4 +6,5 @@ module.exports = override(
     libraryDirectory: 'es',
     style: 'css',
   }),
+  setWebpackPublicPath('/axios-brige-swagger-tool')
 );
