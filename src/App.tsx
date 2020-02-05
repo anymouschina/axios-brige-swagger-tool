@@ -1,13 +1,26 @@
 // src/App.tsx
 import React, { Component } from 'react';
 import { Layout, Menu} from 'antd';
+import workBoard from './components/workBoard/index'
 // import Rightview from './components/view/view'
 // 首先我们需要导入一些组件...
 import { HashRouter as Router, Route, Switch,Link, Redirect } from 'react-router-dom'
 import Guide from './components/guide/index'
 import './App.css';
 const { Header, Footer ,Content} = Layout;
-class App extends Component {
+interface IPops{
+
+}
+interface IState{
+  defaultSelectedKeys:Array<string>
+}
+class App extends Component<IPops,IState> {
+  constructor(props:any){
+    super(props)
+    this.state = {
+      defaultSelectedKeys:[window.location.hash.slice(1)]
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -17,18 +30,18 @@ class App extends Component {
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={this.state.defaultSelectedKeys}
               style={{ lineHeight: '64px' }}
             >
-                <Menu.Item key="1"><Router><Link to="/guide">Guide</Link></Router></Menu.Item>
-                <Menu.Item key="2"><Router><Link to="/dashboard">dashboard</Link></Router></Menu.Item>
+                <Menu.Item key="/guide"><Router><Link to="/guide">Guide</Link></Router></Menu.Item>
+                <Menu.Item key="/dashboard"><Router><Link to="/dashboard">dashboard</Link></Router></Menu.Item>
             </Menu>
           </Header>
           <Content style={{height:'calc(100vh - 133px)',overflow:'auto'}}>
           <Router>
             <Switch>
                 <Route exact path="/guide" component={Guide} />
-                {/* <Route exact path="" component={NotFound}/> */}
+                <Route exact path="/dashboard" component={workBoard}/>
                 <Redirect exact from="/" to="/guide"></Redirect>
               </Switch>
             </Router>

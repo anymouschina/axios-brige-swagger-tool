@@ -6,5 +6,5 @@ module.exports = override(
     libraryDirectory: 'es',
     style: 'css',
   }),
-  setWebpackPublicPath('/axios-brige-swagger-tool')
+  // setWebpackPublicPath('/axios-brige-swagger-tool')
 );

@@ -54,6 +54,7 @@ class Guide extends React.Component<IMyComponentProps, IMyComponentState>{
         </li>
           </ul>
     </Paragraph>
+    <Title level={3}>目前支持 <Text delete>spring boot</Text> 和官方 swagger.json</Title>
         <Title level={3}>欢迎补充<a href="https://github.com/anymouschina/axios-brige-swagger-tool">github:https://github.com/anymouschina/axios-brige-swagger-tool</a></Title>
   </Typography>
         )
